@@ -1,4 +1,122 @@
-css{}
-html<
-      
-  >
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Art of Cooking</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.4}
+    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#f7fbff,#ffffff);padding:24px}
+    .card{width:min(980px,96vw);background:white;border-radius:12px;box-shadow:0 8px 30px rgba(25,40,50,0.08);overflow:hidden}
+    header{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #f0f2f6}
+    h1{font-size:18px;margin:0}
+    .controls{display:flex;gap:8px}
+    button{padding:8px 12px;border-radius:8px;border:1px solid #e6e9ef;background:#fff;cursor:pointer}
+    main{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:20px}
+    .img-wrap{display:flex;flex-direction:column;gap:12px}
+    img{width:100%;height:320px;object-fit:cover;border-radius:8px}
+    .text{padding:12px;border-radius:8px;background:#fbfdff;border:1px dashed #eef3fb;min-height:320px;overflow:auto}
+    footer{padding:12px 20px;border-top:1px solid #f0f2f6;font-size:13px;color:#556}
+    @media (max-width:720px){main{grid-template-columns:1fr}img{height:220px}}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <header>
+      <h1>Random Image & Text Playground</h1>
+      <div class="controls">
+        <button id="rndImgBtn">Random Image</button>
+        <button id="rndTxtBtn">Random Text</button>
+        <button id="bothBtn">Both</button>
+        <button id="downloadBtn">Download HTML</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="img-wrap">
+        <img id="mainImg" alt="Random placeholder from Picsum">
+        <div style="display:flex;gap:8px">
+          <input id="w" type="number" value="800" style="width:100px;padding:8px;border-radius:6px;border:1px solid #e6e9ef"> 
+          <input id="h" type="number" value="450" style="width:100px;padding:8px;border-radius:6px;border:1px solid #e6e9ef"> 
+          <input id="query" placeholder="optional query/seed" style="flex:1;padding:8px;border-radius:6px;border:1px solid #e6e9ef">
+        </div>
+      </div>
+
+      <div>
+        <div class="text" id="textArea">
+          <h2 id="title">Welcome</h2>
+          <p>Click <strong>Random Image</strong> or <strong>Random Text</strong> to fill this page with placeholder content.</p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      Uses Lorem Picsum (random images) and Bacon Ipsum (placeholder text). No tracking, just client-side requests to public placeholder APIs.
+    </footer>
+  </div>
+
+  <script>
+    const imgEl = document.getElementById('mainImg');
+    const titleEl = document.getElementById('title');
+    const textEl = document.getElementById('textArea');
+    const wInput = document.getElementById('w');
+    const hInput = document.getElementById('h');
+    const qInput = document.getElementById('query');
+
+    function setRandomImage(){
+      const w = Math.max(50, parseInt(wInput.value) || 800);
+      const h = Math.max(50, parseInt(hInput.value) || 450);
+      const q = qInput.value.trim();
+      // Use Lorem Picsum: https://picsum.photos/{width}/{height}
+      // add a cache-busting random param so the browser gets a new picture each time
+      const rand = Date.now() + Math.floor(Math.random()*10000);
+      const seedPart = q ? `?seed=${encodeURIComponent(q)}&random=${rand}` : `?random=${rand}`;
+      imgEl.src = `https://picsum.photos/${w}/${h}${seedPart}`;
+      imgEl.alt = `Random placeholder ${w}x${h}`;
+    }
+
+    async function setRandomText(){
+      // Use Bacon Ipsum JSON API to fetch meaty lorem text
+      // Example: https://baconipsum.com/api/?type=meat-and-filler&paras=2&format=json
+      try{
+        const paras = 2;
+        const resp = await fetch(`https://baconipsum.com/api/?type=meat-and-filler&paras=${paras}&format=json`);
+        if(!resp.ok) throw new Error('network');
+        const data = await resp.json();
+        // pick a random heading + paragraphs
+        const heading = ['Hello there','Random Stuff','Placeholder Title','Demo','Sample Header'][Math.floor(Math.random()*5)];
+        titleEl.textContent = heading;
+        textEl.querySelectorAll('p').forEach(p=>p.remove());
+        data.forEach(p => {
+          const pEl = document.createElement('p');
+          pEl.textContent = p;
+          textEl.appendChild(pEl);
+        });
+      }catch(e){
+        titleEl.textContent = 'Offline or blocked';
+        textEl.querySelectorAll('p').forEach(p=>p.remove());
+        const em = document.createElement('p');
+        em.textContent = 'Could not load placeholder text. If you are offline or the API is blocked, try again later.';
+        textEl.appendChild(em);
+      }
+    }
+
+    document.getElementById('rndImgBtn').addEventListener('click', setRandomImage);
+    document.getElementById('rndTxtBtn').addEventListener('click', setRandomText);
+    document.getElementById('bothBtn').addEventListener('click', ()=>{ setRandomImage(); setRandomText(); });
+
+    // Download the current HTML as a file (simple client-side export)
+    document.getElementById('downloadBtn').addEventListener('click', ()=>{
+      const blob = new Blob([document.documentElement.outerHTML],{type:'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'random-page.html';
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    // initial content
+    setRandomImage();
+  </script>
+</body>
+</html>
