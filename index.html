@@ -39,23 +39,66 @@
 
         main {
             padding: 20px;
+            max-width: 1000px;
+            margin: auto;
         }
 
         section {
-            margin-bottom: 25px;
+            margin-bottom: 40px;
             background: #ffe5d9; /* soft peach */
-            padding: 15px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 12px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
         section h2 {
             color: #6b2737; /* wine red */
+            font-size: 28px;
+            margin-bottom: 10px;
         }
 
         section p {
-            font-size: 16px;
-            line-height: 1.5;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        section img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .cookbook-promo {
+            text-align: center;
+            background: #fcd5ce; /* light blush */
+        }
+
+        .cookbook-promo h2 {
+            font-size: 32px;
+            color: #b23a48;
+        }
+
+        .cookbook-promo p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .cookbook-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background: #b23a48;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .cookbook-btn:hover {
+            background: #6b2737;
         }
 
         footer {
@@ -63,39 +106,9 @@
             color: #fff8f0;
             text-align: center;
             padding: 12px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Le Cheffe</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Recipes</a></li>
-                <li><a href="#">Tips & Tricks</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Featured Recipe: Classic Ratatouille</h2>
-            <p>A comforting Provençal vegetable dish layered with zucchini, eggplant, peppers, and a rich tomato base. Perfect for a cozy dinner!</p>
-        </section>
-        <section>
-            <h2>Quick Recipe: Garlic Butter Shrimp</h2>
-            <p>Juicy shrimp tossed in garlic, butter, and lemon — ready in under 15 minutes. Serve with rice or pasta for an easy weeknight meal.</p>
-        </section>
-        <section>
-            <h2>Baking Highlight: Chocolate Lava Cake</h2>
-            <p>Decadent individual cakes with a gooey chocolate center. Best enjoyed warm with vanilla ice cream.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Le Cheffe | Cooking with Passion</p>
-    </footer>
-</body>
-</html>
