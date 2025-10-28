@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>The Art of Cooking</title>
+    <title>Le Cheffe</title>
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
     <link rel="shortcut icon" type="x-icon" href="newlogoicon.png">
@@ -10,10 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
-    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 
     <style>
         * {
@@ -21,6 +19,7 @@
             padding: 0;
         }
 
+        /* Banner */
         #banner {
             background: linear-gradient(rgba(0, 0, 0, 0.5), #8B0000), url(Jade.png);
             background-size: cover;
@@ -42,13 +41,15 @@
         }
 
         .banner-text h1 {
-            font-size: 130px;
+            font-size: 120px;
             font-family: "Kaushan Script", cursive;
+            color: #FF4C4C;
         }
 
         .banner-text p {
-            font-size: 20px;
+            font-size: 22px;
             font-style: italic;
+            color: #FFD6D6;
         }
 
         .banner-btn {
@@ -62,7 +63,7 @@
             margin: 0 10px;
             padding: 12px 0;
             color: #fff;
-            border: .5px solid #fff;
+            border: 1px solid #fff;
             position: relative;
             z-index: 1;
             transition: color 0.5s;
@@ -74,7 +75,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background: #FF6F61;
+            background: #FF4C4C;
             z-index: -1;
             transition: 0.5s;
         }
@@ -87,6 +88,7 @@
             color: #000;
         }
 
+        /* Side navigation */
         #sideNav {
             width: 250px;
             height: 100vh;
@@ -106,6 +108,7 @@
         nav ul li a {
             text-decoration: none;
             color: #fff;
+            font-weight: bold;
         }
 
         #menuBtn {
@@ -126,19 +129,7 @@
             margin-top: 15px;
         }
 
-        @media screen and (max-width: 770px) {
-            .banner-text h1 {
-                font-size: 44px;
-            }
-
-            .banner-btn a {
-                display: block;
-                margin: 20px auto;
-            }
-        }
-
-        /*--feature--*/
-
+        /* Features */
         #feature {
             width: 100%;
             padding: 70px 0;
@@ -152,7 +143,7 @@
         .title-text p {
             margin: auto;
             font-size: 20px;
-            color: #FF6347;
+            color: #FF4C4C;
             font-weight: bold;
             position: relative;
             z-index: 1;
@@ -163,7 +154,7 @@
             content: '';
             width: 50px;
             height: 35px;
-            background: linear-gradient(#B22222, #fff);
+            background: linear-gradient(#8B0000, #fff);
             position: absolute;
             top: -20px;
             left: 0;
@@ -179,21 +170,15 @@
         }
 
         .features h1 {
-            color: #FF6347;
+            color: #B22222;
         }
 
         .feature-icon .fa {
-            color: #FF6347;
-            border: 1px solid #FF6347;
+            color: #FF4C4C;
+            border: 1px solid #FF4C4C;
         }
 
-        .features-img img {
-            width: 530px;
-            border-radius: 10px;
-            height: 600px;
-        }
-
-        /*--service---*/
+        /* Services */
         #service {
             width: 100%;
             padding: 70px 0;
@@ -201,7 +186,7 @@
         }
 
         .overlay {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), #B22222);
+            background: linear-gradient(rgba(0, 0, 0, 0.5), #8B0000);
         }
 
         hr {
@@ -212,12 +197,12 @@
             width: 60%;
         }
 
-        /* mini gallery */
+        /* Mini gallery */
         .mini-gallery-pic {
             box-shadow: 0 10px 20px 3px #8B0000;
         }
 
-        /* footer */
+        /* Footer */
         #footer {
             background: #FFF5F5;
         }
@@ -225,16 +210,92 @@
         .social-button {
             border: 2px solid #8B0000;
             color: #8B0000;
+            font-weight: bold;
         }
 
         .social-button span {
-            background: #FF6F61;
+            background: #FF4C4C;
         }
 
         .social-button:hover {
-            border: 2px solid #FF6F61;
+            border: 2px solid #FF4C4C;
+            background: #8B0000;
+            color: #fff;
+        }
+
+        .footer-row h1 {
+            color: #8B0000;
+        }
+
+        .footer-row p {
+            color: #A52A2A;
+        }
+
+        @media screen and (max-width: 770px) {
+            .banner-text h1 {
+                font-size: 50px;
+            }
+
+            .banner-btn a {
+                display: block;
+                margin: 20px auto;
+            }
         }
     </style>
 </head>
+
+<body>
+
+    <section id="banner">
+        <img src="newlogo.png" class="logo">
+        <div class="banner-text">
+            <h1>Le Cheffe</h1>
+            <p>Fine Recipes & Culinary Artistry</p>
+            <div class="banner-btn">
+                <a href="#footer"><span></span>View Recipes</a>
+                <a href="#feature"><span></span>Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="sideNav">
+        <nav>
+            <ul>
+                <li><a href="#banner">Home</a></li>
+                <li><a href="#feature">Recipes</a></li>
+                <li><a href="#service">Cookbook</a></li>
+                <li><a href="#mini-gallery">Gallery</a></li>
+                <li><a href="#footer">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="menuBtn">
+        <img src="images/menu.png.png" id="menu">
+    </div>
+
+    <script>
+        var menuBtn = document.getElementById("menuBtn")
+        var sideNav = document.getElementById("sideNav")
+        var menu = document.getElementById("menu")
+
+        sideNav.style.right = "-250px";
+
+        menuBtn.onclick = function () {
+            if (sideNav.style.right == "-250px") {
+                sideNav.style.right = "0";
+                menu.src = "images/redx.png.png";
+            } else {
+                sideNav.style.right = "-250px";
+                menu.src = "images/menu.png.png";
+            }
+        }
+
+        var scroll = new SmoothScroll('a[href*="#"]', {
+            speed: 1000,
+            speedAsDuration: true
+        });
+    </script>
+
+</body>
 
 </html>
