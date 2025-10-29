@@ -203,9 +203,7 @@
       opacity:0;
       transition:0.5s;
     }
-    .single-service:hover .overlay {
-      opacity:1;
-    }
+    .single-service:hover .overlay {opacity:1;}
     .service-desc {
       width:80%;
       position:absolute;
@@ -247,6 +245,40 @@
       border-radius:15px;
     }
 
+    /* Cookbook Section */
+    #cookbook {
+      background:#590000;
+      padding:80px 0;
+      text-align:center;
+    }
+    #cookbook img {
+      width:200px;
+      margin-bottom:20px;
+      border-radius:20px;
+    }
+    #cookbook p {
+      color:#ffcccc;
+      width:80%;
+      margin:auto;
+      line-height:28px;
+      font-size:18px;
+    }
+    #cookbook .cta {
+      margin-top:40px;
+    }
+    #cookbook .cta a {
+      background:#ff4d4d;
+      color:white;
+      padding:12px 25px;
+      border-radius:25px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+    #cookbook .cta a:hover {
+      background:#ff1a1a;
+    }
+
     /* Footer */
     #footer {
       background:#660000;
@@ -280,17 +312,14 @@
       border-radius:20px;
       cursor:pointer;
     }
-    .social-button a {
-      color:white;
-      text-decoration:none;
-    }
+    .social-button a {color:white; text-decoration:none;}
     .social-button:hover {background:#ff1a1a;}
-
   </style>
 </head>
 
 <body>
 
+  <!-- Banner -->
   <section id="banner">
     <img src="leCheffeLogo.png" class="logo">
     <div class="banner-text">
@@ -303,6 +332,7 @@
     </div>
   </section>
 
+  <!-- Menu -->
   <div id="sideNav">
     <nav>
       <ul>
@@ -310,6 +340,7 @@
         <li><a href="#feature">About</a></li>
         <li><a href="#service">Recipes</a></li>
         <li><a href="#mini-gallery">Gallery</a></li>
+        <li><a href="#cookbook">Cookbook</a></li>
         <li><a href="#footer">Contact</a></li>
       </ul>
     </nav>
@@ -324,7 +355,6 @@
       <p>Features</p>
       <h1>Why Cook With Us</h1>
     </div>
-
     <div class="feature-box">
       <div class="features">
         <h1>Authentic Taste</h1>
@@ -334,7 +364,6 @@
             <p>Each recipe is crafted with authentic flavors and warm techniques perfected over years of cooking passion.</p>
           </div>
         </div>
-
         <h1>Custom Recipes</h1>
         <div class="features-desc">
           <div class="feature-icon"><i class="fa fa-paint-brush"></i></div>
@@ -342,7 +371,6 @@
             <p>We create custom dishes to your taste — spice level, ingredients, and plating designed for you.</p>
           </div>
         </div>
-
         <h1>Simple Process</h1>
         <div class="features-desc">
           <div class="feature-icon"><i class="fa fa-ship"></i></div>
@@ -352,6 +380,7 @@
         </div>
       </div>
       <div class="features-img">
+        <img src="original.jpg" alt="original">
       </div>
     </div>
   </section>
@@ -391,7 +420,7 @@
         </div>
       </div>
       <div class="single-service">
-        <img src="orginal.jpg" alt="original">
+        <img src="original.jpg" alt="original">
         <div class="overlay"></div>
         <div class="service-desc">
           <h3>Original</h3>
@@ -412,6 +441,24 @@
       <div class="mini-gallery-pic"><img src="dish1.jpg" alt="dish1"></div>
       <div class="mini-gallery-pic"><img src="dish2.jpg" alt="dish2"></div>
       <div class="mini-gallery-pic"><img src="dessert.jpg" alt="dessert"></div>
+    </div>
+  </section>
+
+  <!-- Cookbook -->
+  <section id="cookbook">
+    <div class="title-text">
+      <p>Le Cheffe Cookbook</p>
+      <h1>Love These Recipes?</h1>
+    </div>
+    <img src="leCheffeLogo.png" alt="Le Cheffe Cookbook">
+    <p>
+      Discover over 100 exclusive recipes in the <strong>Le Cheffe Cookbook</strong> — a beautifully illustrated guide to mastering home cuisine.  
+      Inside you’ll find savory meals, delicate desserts, chef’s secrets, and a special section for custom plating designs.  
+      Each page is filled with stories, flavors, and creative ideas from our kitchen.  
+      Whether you’re a beginner or a seasoned cook, this cookbook is your next culinary adventure.
+    </p>
+    <div class="cta">
+      <a href="#">Order Your Copy Now</a>
     </div>
   </section>
 
